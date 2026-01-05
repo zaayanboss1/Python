@@ -1,34 +1,39 @@
-import math
-import random
-import pygame
+class library:
+    def __init__(self,list,name):
+        self.booklist = list
+        self.name = name
+        self.lendDict = {}
 
-SCREEN_WIDTH=800
-SCREEN_HEIGHT=500
-PLAYER_START_X=370
-PLAYER_START_Y=380
-ENEMY_START_Y_MIN=50
-ENEMY_START_Y_MAX=150
-ENEMY_SPEED_X=4
-ENEMY_SPEED_Y=40
-BULLET_SPEED_Y=10
-COLLISION_DISTANCE=27
+    def displayBooks(self):
+        print(f"We have following books in our library: {self.name}")
+        for book in sel.bookList:
+            print(book)
 
-pygame.init()
+    def lenBook(self,user,book):
+        if book not in self.lendDict.keys():
+            self.lendDict.update({book:user})
+            print("Lender-Book database has been updated.You can taake the book now")
+        else:
+            print(f"Book is already being used by{self.lendDict[book]}")
 
-screen=pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+    def addbook(self,book):
+        self.bookList.append(book)
+        print("Book has been added to the book list")
 
-background=pygame.image.load("background.png")
-pygame.display.seet_caption("Space Invader")
-icon=pygame.image.load("ufo.png")
-pygame.display.set_icon(icon)
+    def returnBook(self,book):
+        self.lendDict.pop(book)
 
-playerlmg=pygame.image.load('player.png')
-playerX=PLAYER_START_X
-playerY=PLAYER_START_Y
-playerX_change=0
-enemylmg=[]
-enemyX=[]
-enemyY=[]
-enemyX_change=[]
-enemyY_change=[]
-num of enemies =6
+if __name__=='__main__':
+    books=Library(['Python','Rich Dad Poor Dad','Harry Potter','C++ Basics','Algorithms by CLRS'],"Let's Upskill")
+
+    while(True):
+        print(f"Welcome to the {books.name} library. Enter your choice to continue")
+        print("1.Display Books")
+        print("2. Lend a Book")
+        print("3.Add a Book")
+        print("4.Return a Book")
+        user_choice = input()
+        if user_choice not in ['1','2','3','4']:
+            print("Please enter a valid option")
+
+        els
